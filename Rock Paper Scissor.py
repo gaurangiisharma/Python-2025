@@ -1,4 +1,4 @@
-#rock paper scissors loop until I win
+#rock paper scissors loop
 
 import random
 
@@ -21,11 +21,9 @@ while running:
 
     if player == computer:
             print("It's a tie")
-    elif player == "rock" and computer == "scissors":
-            print("You win!")
-    elif player == "paper" and computer == "rock":
-            print("You win!")
-    elif player == "scissors" and computer == "paper":
+    elif (player == "rock" and computer == "scissors") or \
+    (player == "paper" and computer == "rock") or \
+    (player == "scissors" and computer == "paper"):
             print("You win!")
     else:
             print("You lose")
