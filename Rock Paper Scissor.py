@@ -4,7 +4,9 @@ import random
 
 options = ["rock", "paper", "scissors"]
 
-while True:
+running = True
+
+while running:
 
     player = None
     computer = random.choice(options)
@@ -21,12 +23,12 @@ while True:
             print("It's a tie")
     elif player == "rock" and computer == "scissors":
             print("You win!")
-            break
     elif player == "paper" and computer == "rock":
             print("You win!")
-            break
     elif player == "scissors" and computer == "paper":
             print("You win!")
-            break
     else:
             print("You lose")
+    if not input("Do you want to play again? (y/n): ").lower().startswith("y"):
+        running = False
+print("Thank you for playing!")
