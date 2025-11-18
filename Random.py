@@ -1,34 +1,36 @@
+# Python number guessing game
 import random
 
-low = 1
-high = 100
-options = ("Rock", "Paper", "Scissors")
-cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-
-# number = random.random()
-# number = random.randint(low, high)
-# choice = random.choice(options)
-# random.shuffle(cards)
-
-# -------------- NUMBER GUESSING GAME --------------
-
-import random
-
-low = 1
-high = 100
+lowest_num = 1
+highest_num = 100
+answer = random.randint(lowest_num, highest_num)
 guesses = 0
-number = random.randint(low, high)
+is_running = True
 
-while True:
-   guess = int(input(f"Enter a number between ({low} - {high}): "))
-   guesses += 1
+print("Python Number Guessing Game")
+print(f"Select a number between {lowest_num} and {highest_num}")
 
-   if guess < number:
-       print(f"{guess} is too low")
-   elif guess > number:
-       print(f"{guess} is too high")
-   else:
-       print(f"{guess} is correct!")
-       break
+while is_running:
 
-print(f"This round took you {guesses} guesses")
+    guess = input("Enter your guess: ")
+
+    if guess.isdigit():
+        guess = int(guess)
+
+        if guess < lowest_num or guess > highest_num:
+            print("That number is out of range")
+            print(f"Please select a number between {lowest_num} and {highest_num}")
+        elif guess < answer:
+            print("Too low! Try again!")
+            guesses += 1
+        elif guess > answer:
+            print("Too high! Try again!")
+            guesses += 1
+        else:
+            guesses += 1
+            print(f"CORRECT! The answer was {answer}")
+            print(f"Number of guesses: {guesses}")
+            is_running = False
+    else:
+        print("Invalid guess")
+        print(f"Please select a number between {lowest_num} and {highest_num}")
