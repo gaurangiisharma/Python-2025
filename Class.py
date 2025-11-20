@@ -1,4 +1,4 @@
-# Inheritance = Allows a class to inherit attributes and methods from another class
+# MULTIPLE Inheritance = Allows a class to inherit attributes and methods from another class
 #                         Helps with code reusability and extensibility
 #                         class Child(Parent)
 
@@ -13,20 +13,23 @@ class Animal:
     def sleep(self):
         print(f"{self.name} is asleep")
 
-class Dog(Animal):
-    def speak(self):
-        print("WOOF!")
+class Prey(Animal):
+    def flee(self):
+        print(f"{self.name} is fleeing")
 
-class Cat(Animal):
-    def speak(self):
-        print("MEOW!")
+class Predator(Animal):
+    def hunt(self):
+        print(f"{self.name} is hunting")
 
-class Mouse(Animal):
-    def speak(self):
-        print("SQUEEK!")
+class Rabbit(Prey):
+    pass
 
-dog = Dog("Scooby")
-cat = Cat("Garfield")
-mouse = Mouse("Mickey")
+class Hawk(Predator):
+    pass
 
-cat.speak()
+class Fish(Prey, Predator):
+    pass
+
+rabbit = Rabbit("Bugs")
+hawk = Hawk("Tony")
+fish = Fish("Nemo")
